@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@import "@fontsource/bebas-neue";
+@import "@fontsource/space-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: Tahoma, "Segoe UI", sans-serif;
+  --font-display: "Bebas Neue", Tahoma, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-xp-blue: var(--xp-blue);
+  --color-xp-blue-dark: var(--xp-blue-dark);
+  --color-xp-green: var(--xp-green);
+  --color-xp-green-dark: var(--xp-green-dark);
+  --color-paper: var(--paper);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.975 0.012 85);
+  --foreground: oklch(0.22 0.03 260);
+  --card: oklch(0.995 0.005 85);
+  --card-foreground: oklch(0.22 0.03 260);
+  --popover: oklch(0.995 0.005 85);
+  --popover-foreground: oklch(0.22 0.03 260);
+  --primary: oklch(0.6 0.17 140);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.93 0.03 250);
+  --secondary-foreground: oklch(0.3 0.1 260);
+  --muted: oklch(0.94 0.015 85);
+  --muted-foreground: oklch(0.48 0.03 260);
+  --accent: oklch(0.85 0.14 85);
+  --accent-foreground: oklch(0.25 0.05 60);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.86 0.02 85);
+  --input: oklch(0.86 0.02 85);
+  --ring: oklch(0.55 0.16 255);
+  --xp-blue: oklch(0.55 0.18 258);
+  --xp-blue-dark: oklch(0.38 0.16 262);
+  --xp-green: oklch(0.62 0.17 140);
+  --xp-green-dark: oklch(0.45 0.14 142);
+  --paper: oklch(0.96 0.03 90);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+}
+
+@utility xp-titlebar {
+  background: linear-gradient(180deg, var(--xp-blue) 0%, var(--xp-blue-dark) 100%);
+  color: var(--primary-foreground);
+}
+@utility xp-start {
+  background: linear-gradient(180deg, var(--xp-green) 0%, var(--xp-green-dark) 100%);
+  color: var(--primary-foreground);
+}
+@utility hero-sky {
+  background:
+    radial-gradient(ellipse 120% 60% at 30% 115%, var(--xp-green) 0 45%, transparent 46%),
+    radial-gradient(ellipse 120% 55% at 85% 120%, var(--xp-green-dark) 0 45%, transparent 46%),
+    linear-gradient(180deg, var(--xp-blue-dark) 0%, var(--xp-blue) 45%, var(--secondary) 100%);
+}

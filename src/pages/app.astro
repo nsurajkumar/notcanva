@@ -1,0 +1,17 @@
+---
+import Base from "@/layouts/Base.astro";
+import Desktop from "@/components/desktop/Desktop";
+---
+<Base
+  title="notcanva Editor: Free Design Desktop"
+  description="Open the notcanva editor and design right in your browser. No signup, nothing uploaded."
+  ogTitle="notcanva Editor"
+  ogDescription="A free, private design editor and whiteboard that runs in your browser."
+>
+  <!-- Konva, Dexie and the window manager are browser-only, so the editor island renders on the client only. -->
+  <Desktop client:only="react">
+    <div slot="fallback" class="hero-sky flex min-h-screen items-center justify-center">
+      <p class="font-mono text-sm text-primary-foreground">Opening the case files…</p>
+    </div>
+  </Desktop>
+</Base>

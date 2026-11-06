@@ -1,0 +1,89 @@
+---
+import Base from "@/layouts/Base.astro";
+import SiteFooter from "@/components/landing/SiteFooter.astro";
+import XpPanel from "@/components/landing/XpPanel.astro";
+import { GITHUB_URL } from "@/lib/site";
+
+const features = [
+  { icon: "🚫", title: "No signup", text: "Open it and start designing. No account, no email, no password." },
+  { icon: "🧵", title: "Case Board", text: "An endless dark whiteboard with sticky notes, cards, arrows and a pen. Map out any idea." },
+  { icon: "🔒", title: "Private by default", text: "Everything stays in your browser. Nothing is uploaded, ever." },
+  { icon: "🖼️", title: "Export PNG / JPG / PDF", text: "Download crisp files at 1x, 2x or 3x, all made on your device." },
+  { icon: "📁", title: "Templates", text: "Start from posters, thumbnails, invites, business cards and more." },
+  { icon: "🔍", title: "Open source", text: "MIT licensed. Read the code, fork it, make it better." },
+];
+
+const faqs = [
+  { q: "Is it really free?", a: "Yes. No paid plans, no watermarks, no premium templates. It's open source under the MIT license." },
+  { q: "Where are my files saved?", a: "In your browser's own storage on this device. They're never sent to any server." },
+  { q: "What happens if I clear my browser?", a: "Your designs are deleted. Use File > Backup in the editor to download a .notcanva copy you can restore later." },
+  { q: "Does it need the internet?", a: "Only to load the page. After that, everything you make is processed and saved on your device." },
+  { q: "Can I contribute?", a: "Please do! Open issues, suggest features or send pull requests on GitHub." },
+];
+---
+<Base
+  title="notcanva: Free, Open-Source Design Editor in Your Browser"
+  description="Design anything. Zero bucks given. Free forever, open source, no signup. Your designs never leave your browser."
+  ogTitle="notcanva: Design anything. Zero bucks given."
+  ogDescription="Free forever. Open source. No signup. Your designs never leave your browser."
+>
+  <div class="min-h-screen">
+    <header class="hero-sky relative overflow-hidden">
+      <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-5">
+        <span class="font-display text-3xl tracking-wide text-primary-foreground">notcanva</span>
+        <a href={GITHUB_URL} target="_blank" rel="noreferrer" class="text-sm font-bold text-primary-foreground/90 hover:text-primary-foreground">GitHub ↗</a>
+      </nav>
+      <div class="mx-auto flex max-w-5xl flex-col items-center px-6 pb-40 pt-16 text-center">
+        <span class="mb-5 rounded-full bg-card/20 px-3 py-1 font-mono text-xs text-primary-foreground">Case #001: the free design editor</span>
+        <h1 class="font-display text-6xl leading-none tracking-wide text-primary-foreground drop-shadow md:text-8xl">
+          Design anything.<br />Zero bucks given.
+        </h1>
+        <p class="mt-6 max-w-xl text-lg text-primary-foreground/90">
+          Free forever. Open source. No signup. Your designs never leave your browser.
+        </p>
+        <div class="mt-10 flex flex-wrap items-start justify-center gap-4">
+          <a href="/app" class="xp-start rounded-lg px-8 py-4 text-lg font-bold italic shadow-lg ring-2 ring-primary-foreground/40 hover:brightness-110">▶ Open notcanva</a>
+          <a href={GITHUB_URL} target="_blank" rel="noreferrer" class="rounded-lg bg-card px-6 py-4 text-lg font-bold text-foreground shadow-lg hover:bg-muted">View on GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl space-y-20 px-6 py-20">
+      <section>
+        <h2 class="mb-8 font-display text-5xl tracking-wide">The evidence</h2>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((f) => (
+            <XpPanel title={f.title}>
+              <div class="mb-2 text-3xl" aria-hidden="true">{f.icon}</div>
+              <p class="text-sm text-muted-foreground">{f.text}</p>
+            </XpPanel>
+          ))}
+        </div>
+      </section>
+
+      <section class="rounded-lg border-2 border-accent bg-paper p-6">
+        <p class="flex items-start gap-3 font-bold">
+          <span aria-hidden="true" class="text-2xl">⚠️</span>
+          <span>Your files live in your browser only. Export a backup often.</span>
+        </p>
+      </section>
+
+      <section>
+        <h2 class="mb-8 font-display text-5xl tracking-wide">Questions, detective?</h2>
+        <div class="space-y-3">
+          {faqs.map((f) => (
+            <details class="group rounded-md border-2 border-border bg-card p-4 open:border-xp-blue">
+              <summary class="cursor-pointer list-none font-bold">
+                <span class="mr-2 inline-block transition-transform group-open:rotate-90">▸</span>
+                {f.q}
+              </summary>
+              <p class="mt-3 pl-5 text-sm text-muted-foreground">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <SiteFooter />
+  </div>
+</Base>
