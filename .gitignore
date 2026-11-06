@@ -34,3 +34,7 @@ dist-ssr
 # Astro
 .astro/
 dist/
+
+# Firebase
+.firebase/
+firebase-debug.log
